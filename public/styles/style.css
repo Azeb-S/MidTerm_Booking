@@ -1,0 +1,215 @@
+:root {
+    --background: #1f63c0;
+    --main: #ffffff;
+    --text: #1c1c1c;
+    --muted: #666666;
+    --primary: #0d47a1;
+    --radius: 1.2rem;
+    font-size: 16px;
+    /* rem base */
+}
+
+
+/* ---------- Base / Reset ---------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    /* no sideways scroll */
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, Arial, Helvetica, sans-serif;
+    background: var(--background);
+    display: grid;
+    place-items: center;
+    min-height: 100svh;
+    /* mobile-safe viewport height */
+    padding: 2rem;
+}
+
+
+/* ---------- Card ---------- */
+
+main {
+    width: min(42rem, 95vw);
+    background: var(--main);
+    border-radius: var(--radius);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+
+/* ---------- Hero ---------- */
+
+.hero {
+    background: #0d47a1 url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80') center/cover no-repeat;
+    height: 10rem;
+    position: relative;
+}
+
+.hero h1 {
+    position: absolute;
+    left: 0;
+    bottom: 1rem;
+    width: 100%;
+    margin: 0;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    font-size: clamp(1.4rem, 6vw, 2.5rem);
+    /* responsive */
+    text-shadow: 0 .2rem .4rem rgba(0, 0, 0, 0.5);
+}
+
+
+/* ---------- Form ---------- */
+
+.errorr {
+    display: none;
+    color: darkred;
+}
+
+form {
+    padding: 2rem 3rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 1fr;
+    /* mobile first: single column */
+}
+
+.field {
+    display: grid;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+select,
+input[type="date"],
+input[type="number"] {
+    width: 100%;
+    border: 0.1rem solid #e4e6eb;
+    background: #fafafa;
+    color: var(--text);
+    border-radius: 0.75rem;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+select:focus,
+input:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+
+/* Actions */
+
+.actions {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.btn {
+    border: 0;
+    padding: 1rem 2.5rem;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #fff;
+    background: var(--primary);
+    border-radius: 3rem;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #08306a;
+}
+
+
+/* ---------- Footer ---------- */
+
+.footer {
+    width: 100%;
+    background: var(--background);
+    color: #ffffff;
+    text-align: center;
+    padding: 1.2rem 1rem;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+
+/* ---------- Responsive ---------- */
+
+
+/* Small screens (phones) */
+
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+    }
+    /* avoid squeezing the card */
+    main {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        /* optional; remove to keep rounded */
+    }
+    .hero {
+        height: 9rem;
+    }
+    .hero h1 {
+        font-size: clamp(1.2rem, 7vw, 2.2rem);
+        bottom: 0.8rem;
+    }
+    form {
+        padding: 1rem;
+    }
+    /* breathable, no overflow */
+    .grid {
+        gap: 1rem;
+    }
+    .btn {
+        width: 100%;
+    }
+    /* thumb-friendly */
+    .footer {
+        padding: 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+
+/* Medium+ screens: two columns, with destination + actions spanning full width */
+
+@media (min-width: 40rem) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .field--destination {
+        grid-column: 1 / -1;
+    }
+    .actions {
+        grid-column: 1 / -1;
+    }
+}
