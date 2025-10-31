@@ -2,14 +2,14 @@
 //err-dest err-date err-num
 
 document.addEventListener("DOMContentLoaded", () => {
- document.getElementById('book-form').onsubmit = () => {
+ document.getElementById('book-form').onsubmit = (event) => {
 
   clearErrors()
   let isValid = true
 
   let destination = document.getElementById('destination').value
-  let departure_date = document.getElementById('departure-date')
-  let traveleres_num = document.getElementById('number-travelers')
+  let departure_date = document.getElementById('date')
+  let traveleres_num = document.getElementById('number')
 
   //errors
   let destination_errror = document.getElementById('err-dest')
@@ -31,6 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (travelers <= 0) {
    number_errror.style.display = "block"
    isValid = false
+  }
+
+  if (!isValid) {
+   event.preventDefault()
   }
   return isValid
 

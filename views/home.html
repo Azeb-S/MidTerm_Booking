@@ -18,28 +18,29 @@
     <main>
 
         <div class="hero">
-            <!-- <img src="https://bit.ly/305-vacation"> -->
+            <img src="https://bit.ly/305-vacation" alt="Vacation beach view" class="hero-img">
+
             <h1>Book Your Dream Vacation</h1>
         </div>
 
-        <form id="book-form" action="/submissions" method="post">
+        <form id="book-form" action="/submissions" method="post" novalidate>
 
             <div class="grid">
 
                 <!-- Destination  -->
                 <div class="field field--destination">
                     <label for="destination"> Destination</label>
-                    <div class="select-wrap">
-                        <select id="destination" name="destination">  
-                 <option value="none"> Choose a destination</option>
-                 <option value="bali,indonesia">Bali, Indonesia</option>
-                 <option value="paris,france">Paris, France</option>
-                 <option value="tokyo,japan">Tokyo, Japan</option>
-                 <option value="maldives">Maldives</option>
-                 <option value="newyork city usa">New York City USA</option>
+                    <!-- <div class="select-wrap"> -->
+                    <select id="destination" name="destination">  
+                 <option value="none"> Choose a destination </option>
+                 <option value="bali,indonesia"> Bali, Indonesia </option>
+                 <option value="paris,france"> Paris, France </option>
+                 <option value="tokyo,japan"> Tokyo, Japan </option>
+                 <option value="maldives"> Maldives </option>
+                 <option value="newyork city usa"> New York City USA </option>
             </select>
-                        <span id="err-dest" class="errorr">please select one</span>
-                    </div>
+                    <span id="err-dest" class="errorr">please select one</span>
+                    <!-- </div> -->
                 </div>
                 <!-- Date -->
                 <div class="field">
@@ -49,8 +50,8 @@
                 </div>
                 <!-- Travelers -->
                 <div class="field">
-                    <label for="numbers">Number of Travelers</label>
-                    <input id="numbers" type="number" name="numbers" min="0" step="0">
+                    <label for="number">Number of Travelers</label>
+                    <input id="number" type="number" name="number" min="0" step="1">
                     <span id="err-num" class="errorr">Enter the number of traveleres</span>
                 </div>
 

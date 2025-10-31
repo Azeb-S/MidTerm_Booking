@@ -6,7 +6,7 @@ const app = express()
 
 // Enable static file serving
 app.use(express.static('public'))
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 
 // Define the port number where our server will listen
 const PORT = 3006
